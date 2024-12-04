@@ -96,7 +96,7 @@ const Home: React.FC = () => {
           <div className="flex justify-center items-center bg-[#F1EFE7]">
             <header className="flex flex-col md:flex-row justify-between items-left mb-8 max-w-full">
               <div className="w-full">
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center items-center items-b">
                   <img src="logo.png" alt="Käepikendus" className="w-full h-full"/>
                 </div>
               </div>
@@ -221,7 +221,6 @@ const Home: React.FC = () => {
           <div className='mb-10'>
             <img className="rounded-lg mt-10 mb-10 hidden md:block" src="/reklaam.png" alt="Reklaam"/>
           </div>
-
           <footer className="mt-auto pt-4 border-t border-gray-300 md:block">
             <p className="text-center text-sm text-gray-600">© 2024 Käepikendus. All rights reserved.</p>
           </footer>
