@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faEnvelope, faUser} from "@fortawesome/free-solid-svg-icons";
+
 
 const Home: React.FC = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(true);
