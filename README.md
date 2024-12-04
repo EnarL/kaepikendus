@@ -1,4 +1,4 @@
-Tegu on turunduse aine raamaes tehtud veebilehega, et lihtsal moel demonstreerida oma ideed.
+**Tegu on turunduse aine raames tehtud veebilehega, et lihtsal moel demonstreerida oma ideed.**
 
 
 
