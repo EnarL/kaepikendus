@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
 const Home: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(true);
   const [searchInput, setSearchInput] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const router = useRouter();
@@ -36,8 +35,39 @@ const Home: React.FC = () => {
       role: "Veebiarendaja",
       rating: "⭐ 4.7 (52 arvustust)",
       image: "https://randomuser.me/api/portraits/men/3.jpg",
-      category: "Disain",
+      category: "Programmeerimine",
     },
+    {
+      name: "Kadri Kask",
+      role: "Konsultant",
+      rating: "⭐ 4.7 (52 arvustust)",
+      image: "https://randomuser.me/api/portraits/women/3.jpg",
+      category: "Nõustamine"},
+    {
+        name: "Madis Mets",
+        role: "Kirjutaja",
+        rating: "⭐ 4.7 (18 arvustust)",
+        image: "https://randomuser.me/api/portraits/men/4.jpg",
+        category: "Kirjutamine",
+    },
+    {
+      name: "Tiiu Tiitus",
+      role: "Tõlkimine",
+      rating: "⭐ 4.7 (52 arvustust)",
+      image: "https://randomuser.me/api/portraits/women/6.jpg",
+      category: "Tõlketöö",
+
+    },
+    {
+      name: "Paul Maasikas",
+      role: "Tõlkimine",
+      rating: "⭐ 4.7 (52 arvustust)",
+      image: "https://randomuser.me/api/portraits/men/6.jpg",
+      category: "Turundus",
+
+    }
+
+
   ];
 
   const filteredProfiles = profiles.filter(profile =>
@@ -59,26 +89,24 @@ const Home: React.FC = () => {
   };
 
   return (
-      <div className="font-sans w-full h-full m-0 bg-[#f5e9e2] p-4 md:p-8 box-border flex flex-col min-h-screen">
-        <div className="container mx-auto px-4 flex flex-col flex-grow">
-          <header className="flex flex-col md:flex-row justify-between items-left mb-8">
-            <div className="flex items-center gap-4 mb-4 md:mb-0">
-              <img
-                  src="https://randomuser.me/api/portraits/men/1.jpg"
-                  alt="User Profile"
-                  className="w-16 h-16 rounded-full object-cover shadow-lg"
-              />
-              <div>
-                <h2 className="text-2xl font-bold text-gray-800">Tere tulemast!</h2>
-                <p className="text-lg text-gray-600">Tarmo Sepp</p>
+      <div className="font-poppins w-full h-full m-0 bg-[#f5e9e2] p-4 md:p-8 box-border flex flex-col min-h-screen">
+        <div className="container mx-auto px-4 flex flex-col flex-grow  ">
+          <div className="flex justify-center items-center bg-[#F1EFE7]">
+            <header className="flex flex-col md:flex-row justify-between items-left mb-8 max-w-full">
+              <div className="w-full"> {/* Added this div for the background color */}
+                <div className="flex justify-center items-center">
+                  <img src="logo.png" alt="Käepikendus" className="w-full h-full"/>
+                </div>
               </div>
-            </div>
+            </header>
+          </div>
+          <div className="bg-[#cfbdb2] p-4 rounded-lg mb-4">
             <div className="flex items-center w-full md:w-auto">
               {isSearchOpen && (
                   <input
                       type="text"
                       placeholder="Otsi käepikendust"
-                      className="flex-1 p-2 rounded border border-gray-300 shadow-sm"
+                      className="flex-1 p-4 rounded border border-gray-300 shadow-sm"
                       value={searchInput}
                       onChange={(e) => setSearchInput(e.target.value)}
                   />
@@ -87,28 +115,19 @@ const Home: React.FC = () => {
                   className="ml-2 bg-none border-none"
                   onClick={() => setIsSearchOpen(!isSearchOpen)}
               >
-                <img src="https://img.icons8.com/ios-filled/50/000000/search.png" alt="Search" className="w-6 h-6"/>
+                <img src="https://img.icons8.com/ios-filled/50/000000/search.png" alt="Search" className="w-10 h-10"/>
               </button>
             </div>
-            <button
-                className="md:hidden ml-4"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <img src="https://img.icons8.com/ios-filled/50/000000/menu.png" alt="Menu" className="w-6 h-6"/>
-            </button>
-          </header>
-
-          <nav
-              className={`flex flex-col md:flex-row justify-around bg-white p-4 rounded-lg shadow-md ${isMenuOpen ? 'block' : 'hidden'} md:flex`}>
-            <button className="text-2xl text-gray-800">Avasta</button>
-            <button className="text-2xl text-gray-800">Hakka müüjaks</button>
-            <button className="text-2xl text-gray-800">Logi sisse</button>
-            <button className="text-2xl text-gray-800">Liitu</button>
-          </nav>
-
+          </div>
           <main className="flex-1 mt-8">
             <section className="flex-1 mb-8">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Kategooriad</h3>
+              <div className='flex columns-2'>
+
+                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Kategooriad</h3>
+                <h3 className="text-2xl font-semibold text-gray-800 mb-4 text-right ml-auto">Vaata kõiki</h3>
+
+              </div>
+
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
                 <div
                     className="p-4 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer"
@@ -124,15 +143,15 @@ const Home: React.FC = () => {
                 </div>
                 <div
                     className="p-4 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer"
-                    onClick={() => handleCategoryClick("Video")}
+                    onClick={() => handleCategoryClick("Programmeerimine")}
                 >
-                  Video
+                  IT
                 </div>
                 <div
                     className="p-4 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer"
-                    onClick={() => handleCategoryClick("Konsultant")}
+                    onClick={() => handleCategoryClick("Nõustamine")}
                 >
-                  Konsultant
+                  Nõustamine
                 </div>
                 <div
                     className="p-4 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer"
@@ -142,9 +161,9 @@ const Home: React.FC = () => {
                 </div>
                 <div
                     className="p-4 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer"
-                    onClick={() => handleCategoryClick("Äri")}
+                    onClick={() => handleCategoryClick("Tõlketöö")}
                 >
-                  Äri
+                  Tõlketöö
                 </div>
               </div>
             </section>
