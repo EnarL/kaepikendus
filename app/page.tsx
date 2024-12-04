@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const Home: React.FC = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(true);
@@ -44,11 +46,11 @@ const Home: React.FC = () => {
       image: "https://randomuser.me/api/portraits/women/3.jpg",
       category: "Nõustamine"},
     {
-        name: "Madis Mets",
-        role: "Kirjutaja",
-        rating: "⭐ 4.7 (18 arvustust)",
-        image: "https://randomuser.me/api/portraits/men/4.jpg",
-        category: "Kirjutamine",
+      name: "Madis Mets",
+      role: "Kirjutaja",
+      rating: "⭐ 4.7 (18 arvustust)",
+      image: "https://randomuser.me/api/portraits/men/4.jpg",
+      category: "Kirjutamine",
     },
     {
       name: "Tiiu Tiitus",
@@ -93,10 +95,14 @@ const Home: React.FC = () => {
         <div className="container mx-auto px-4 flex flex-col flex-grow  ">
           <div className="flex justify-center items-center bg-[#F1EFE7]">
             <header className="flex flex-col md:flex-row justify-between items-left mb-8 max-w-full">
-              <div className="w-full"> {/* Added this div for the background color */}
+              <div className="w-full">
                 <div className="flex justify-center items-center">
                   <img src="logo.png" alt="Käepikendus" className="w-full h-full"/>
                 </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <FontAwesomeIcon icon={faUser} className="text-gray-800 w-6 h-6"/>
+                <FontAwesomeIcon icon={faEnvelope} className="text-gray-800 w-6 h-6"/>
               </div>
             </header>
           </div>
@@ -124,48 +130,68 @@ const Home: React.FC = () => {
               <div className='flex columns-2'>
 
                 <h3 className="text-2xl font-semibold text-gray-800 mb-4">Kategooriad</h3>
-                <h3 className="text-2xl font-semibold text-gray-800 mb-4 text-right ml-auto">Vaata kõiki</h3>
+                <div
+                    className="text-2xl font-semibold text-gray-800 mb-4 text-right ml-auto cursor-pointer"
+                    onClick={() => setSelectedCategory(null)}
+                >
+                  Vaata kõiki
+                </div>
+
 
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+
                 <div
-                    className="p-4 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+                    className={`p-4 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer ${
+                        selectedCategory === "Disain" ? "bg-gray-200" : ""
+                    }`}
                     onClick={() => handleCategoryClick("Disain")}
                 >
                   Disain
                 </div>
                 <div
-                    className="p-4 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+                    className={`p-4 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer ${
+                        selectedCategory === "Turundus" ? "bg-gray-200" : ""
+                    }`}
                     onClick={() => handleCategoryClick("Turundus")}
                 >
                   Turundus
                 </div>
                 <div
-                    className="p-4 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+                    className={`p-4 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer ${
+                        selectedCategory === "Programmeerimine" ? "bg-gray-200" : ""
+                    }`}
                     onClick={() => handleCategoryClick("Programmeerimine")}
                 >
                   IT
                 </div>
                 <div
-                    className="p-4 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+                    className={`p-4 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer ${
+                        selectedCategory === "Nõustamine" ? "bg-gray-200" : ""
+                    }`}
                     onClick={() => handleCategoryClick("Nõustamine")}
                 >
                   Nõustamine
                 </div>
                 <div
-                    className="p-4 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+                    className={`p-4 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer ${
+                        selectedCategory === "Kirjutamine" ? "bg-gray-200" : ""
+                    }`}
                     onClick={() => handleCategoryClick("Kirjutamine")}
                 >
                   Kirjutamine
                 </div>
                 <div
-                    className="p-4 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+                    className={`p-4 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer ${
+                        selectedCategory === "Tõlketöö" ? "bg-gray-200" : ""
+                    }`}
                     onClick={() => handleCategoryClick("Tõlketöö")}
                 >
                   Tõlketöö
                 </div>
               </div>
+
             </section>
 
             <section className="flex-1">
@@ -192,8 +218,11 @@ const Home: React.FC = () => {
               </div>
             </section>
           </main>
-          <img className="rounded-lg mt-10 mb-10 hidden md:block" src="/reklaam.png" alt="Reklaam"/>
-          <footer className="mt-auto pt-4 border-t border-gray-300 hidden md:block">
+          <div className='mb-10'>
+            <img className="rounded-lg mt-10 mb-10 hidden md:block" src="/reklaam.png" alt="Reklaam"/>
+          </div>
+
+          <footer className="mt-auto pt-4 border-t border-gray-300 md:block">
             <p className="text-center text-sm text-gray-600">© 2024 Käepikendus. All rights reserved.</p>
           </footer>
         </div>
