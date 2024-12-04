@@ -1,8 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faEnvelope, faUser} from "@fortawesome/free-solid-svg-icons";
 
 
 const Home: React.FC = () => {
@@ -100,10 +98,6 @@ const Home: React.FC = () => {
                 <div className="flex justify-center items-center items-b">
                   <img src="logo.png" alt="Käepikendus" className="w-full h-full"/>
                 </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <FontAwesomeIcon icon={faUser} className="text-gray-800 w-6 h-6"/>
-                <FontAwesomeIcon icon={faEnvelope} className="text-gray-800 w-6 h-6"/>
               </div>
             </header>
           </div>

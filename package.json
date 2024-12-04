@@ -11,10 +11,8 @@
   "dependencies": {
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
-    "next": "15.0.3",
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/react-fontawesome": "^0.1.14"
+    "next": "15.0.3"
+
   },
   "devDependencies": {
     "typescript": "^5",
